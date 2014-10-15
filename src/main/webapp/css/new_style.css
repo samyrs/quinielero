@@ -259,3 +259,9 @@ hr { border-top:1px solid #B3B3B3; border-bottom:1px solid #FFF; border-left:0; 
 
 /* customization */
 div .row .button { margin-right:5px }
+
+
+
+.selectTable {width:300px; height: 300px }
+.addRemoveButton {width:100px}
+.saveButton {margin-left:750px}
