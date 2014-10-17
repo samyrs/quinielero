@@ -25,5 +25,7 @@ public abstract class QueryHandler {
      * @return Password raw in a simple string
      */
     public abstract String getUserPassword(String userName) throws InvalidName;
+    
+    public abstract String getUserEmail(String userName) throws InvalidName;
 
 }
