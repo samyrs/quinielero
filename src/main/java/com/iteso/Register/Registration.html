@@ -19,7 +19,24 @@
         console.log("Hubo un error al crear su cuenta, presione F5 para continuar");
         document.getElementById("cuentanocreada").innerHTML = "Passwords are different, please try again";
     }
-   }
+}
+
+function WriteFile(){
+    var fh = fopen("c:\\MyFile.txt", 3); // Open the file for writing
+    if(fh!=-1) // If the file has been successfully opened
+    {
+        var str = "Some text goes here...";
+        fwrite(fh, str); // Write the string to a file
+        fclose(fh); // Close the file
+    }
+}
+
+WriteFile();
+
+function todo(){
+    myFunction();
+    WriteFile();
+}
 </script>
 
 </body>
@@ -35,14 +52,14 @@
 <input type="radio" name="sex" value="male">Male<br/>
 <input type="radio" name="sex" value="female">Female<br/>
 <label>Username:</label><br/>
-<input name="username" type="text" required="required"><br/>
+<input id="username" type="text" required="required"><br/>
 <label>Password:</label><br/>
 <input id="password" type="password" required="required"><br/>
 <label>Repeat Password:</label><br/>
 <input id="repeatpassword" type="password" required="required"><br/>
 <label>Email:</label><br/>
 <input name="email" type="email" required="required"><br/>
-<button onclick="myFunction()">Register</button>
+<button onclick="todo()">Register</button>
 <div id="cuentacreada"></div>
 <div id="cuentanocreada"></div>
 </form>
