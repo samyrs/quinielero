@@ -19,7 +19,27 @@ import com.iteso.sweng.Login.UsersBean;
 @WebServlet("/SaveUserProfileServlet")
 public class SaveUserProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	QueryHandlerDummy q;// = new QueryHandlerDummy();  
+	public QueryHandlerDummy getQ() {
+		return q;
+	}
+
+	public void setQ(QueryHandlerDummy q) {
+		this.q = q;
+	}
+
+	public UsersBean getU() {
+		return u;
+	}
+
+	public void setU(UsersBean u) {
+		this.u = u;
+	}
+
+	UsersBean u;// = q.getUserProfileInformation(userName);
+	
+	
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -47,9 +67,13 @@ public class SaveUserProfileServlet extends HttpServlet {
 		String country = request.getParameter("country");
 		String email = request.getParameter("email");
 		String favoriteTeam = request.getParameter("favoriteTeam");
-		String photo = request.getParameter("photo");
-		QueryHandlerDummy q = new QueryHandlerDummy();  
-		UsersBean u = q.getUserProfileInformation(userName);
+		//String photo = request.getParameter("photo");
+		//QueryHandlerDummy q = new QueryHandlerDummy();  
+		//UsersBean u = new QueryHandlerDummy().getUserProfileInformation(userName);
+		//setQ(new QueryHandlerDummy());
+		//u = getQ(userName);
+		setU(new QueryHandlerDummy().getUserProfileInformation(userName));
+		
 		u.setUserName(userName);
 		u.setLastName(lastName);
 		u.setBirthday(birthday);

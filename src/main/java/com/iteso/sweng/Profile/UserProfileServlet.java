@@ -21,6 +21,14 @@ import com.iteso.sweng.Login.UsersBean;
 @WebServlet("/UserProfileServlet")
 public class UserProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	UsersBean u;
+	public UsersBean getUsersBean() {
+		return u;
+	}
+
+	public void setUsersBean(UsersBean u) {
+		this.u = u;
+	}
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -44,9 +52,11 @@ public class UserProfileServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String userName = request.getParameter("userName");
 		RequestDispatcher dispatcher=null;
-
+		
+		setUsersBean(new QueryHandlerDummy().getUserProfileInformation(userName));
+		
 		HttpSession session = request.getSession( );
-		session.setAttribute("userInformation", new QueryHandlerDummy().getUserProfileInformation(userName));
+		session.setAttribute("userInformation", getUsersBean());
 		dispatcher = getServletContext().getRequestDispatcher( "/profilePage.jsp" );
 		dispatcher.forward( request, response);
 
